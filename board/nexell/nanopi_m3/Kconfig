@@ -1,0 +1,16 @@
+if TARGET_NANOPI_M3
+
+config SYS_SOC
+	default "s5p6818"
+
+config SYS_VENDOR
+	default "nexell"
+
+config SYS_BOARD
+	default "nanopi_m3"
+
+config SYS_CONFIG_NAME
+	default "nanopi_m3"
+
+endif
+

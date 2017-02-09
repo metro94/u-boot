@@ -14,8 +14,12 @@
 #include <fdtdec.h>
 #include <linux/compiler.h>
 #include <asm/io.h>
+#ifdef CONFIG_S5P6818
+#include <serial_s5p.h>
+#else
 #include <asm/arch/clk.h>
 #include <asm/arch/uart.h>
+#endif
 #include <serial.h>
 #include <clk.h>
 
@@ -85,6 +89,8 @@ static void __maybe_unused s5p_serial_baud(struct s5p_uart *uart, uint uclk,
 	else
 		writeb(val % 16, &uart->rest.value);
 }
+
+#if 0
 
 #ifndef CONFIG_SPL_BUILD
 int s5p_serial_setbrg(struct udevice *dev, int baudrate)
@@ -214,6 +220,8 @@ U_BOOT_DRIVER(serial_s5p) = {
 	.ops	= &s5p_serial_ops,
 	.flags = DM_FLAG_PRE_RELOC,
 };
+#endif
+
 #endif
 
 #ifdef CONFIG_DEBUG_UART_S5P

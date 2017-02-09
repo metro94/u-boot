@@ -916,6 +916,13 @@ config TARGET_THUNDERX_88XX
 	select ARM64
 	select OF_CONTROL
 	select SYS_CACHE_SHIFT_7
+	
+config TARGET_NANOPI_M3
+	bool "Support FriendlyARM NanoPi M3"
+	select ARM64
+	help
+	  Support for FriendlyARM NanoPi M3 platform based on Nexell S5P6818
+	  with 8xCortex-A53, Mali-400 MP GPU, 1GB RAM, and 1000M Ethernet Support
 
 endchoice
 
@@ -1066,6 +1073,7 @@ source "board/vscom/baltos/Kconfig"
 source "board/woodburn/Kconfig"
 source "board/work-microwave/work_92105/Kconfig"
 source "board/zipitz2/Kconfig"
+source "board/nexell/nanopi_m3/Kconfig"
 
 source "arch/arm/Kconfig.debug"
 
