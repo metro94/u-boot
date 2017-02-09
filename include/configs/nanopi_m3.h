@@ -1,11 +1,7 @@
 #ifndef __NANOPI_M3_H__
 #define __NANOPI_M3_H__
 
-#define DEBUG
-
 #define CONFIG_S5P6818
-
-#define CONFIG_BOARD_EARLY_INIT_F
 
 #define CONFIG_ENV_IS_NOWHERE
 #define CONFIG_ENV_SIZE				0x800		/* 2 KBytes */
@@ -15,6 +11,8 @@
 #define CONFIG_BAUDRATE				115200
 #define CONFIG_SYS_TEXT_BASE			0x43c00000
 #define CONFIG_SYS_MALLOC_LEN			0x4000000	/* 64 MBytes */
+#define CONFIG_SYS_MALLOC_F
+#define CONFIG_SYS_MALLOC_F_LEN			0x10000		/* 64 KBytes */
 
 #define CONFIG_SYS_NO_FLASH
 
@@ -25,5 +23,7 @@
 #define CONFIG_SYS_SDRAM_SIZE			0x40000000
 
 #define CONFIG_SYS_INIT_SP_ADDR			0x60000000
+
+#define CONFIG_NR_DRAM_BANKS			1
 
 #endif /* __NANOPI_M3_H__ */

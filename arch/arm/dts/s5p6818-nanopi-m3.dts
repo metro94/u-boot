@@ -1,0 +1,18 @@
+/dts-v1/;
+
+#include "s5p6818.dtsi"
+
+/ {
+	model = "FriendlyARM NanoPi M3";
+	compatible = "nexell,s5p6818", "friendlyarm,nanopi-m3";
+	
+	chosen {
+		stdout-path = &uart0;
+	};
+};
+
+&uart0 {
+	status = "okay";
+	u-boot,dm-pre-reloc;
+};
+

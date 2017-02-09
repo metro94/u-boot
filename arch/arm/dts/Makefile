@@ -321,6 +321,9 @@ dtb-$(CONFIG_ARCH_BCM283X) += \
 	bcm2835-rpi-b.dtb \
 	bcm2836-rpi-2-b.dtb \
 	bcm2837-rpi-3-b.dtb
+	
+dtb-$(CONFIG_S5P6818) += \
+	s5p6818-nanopi-m3.dtb
 
 targets += $(dtb-y)
 

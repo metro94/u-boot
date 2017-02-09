@@ -164,6 +164,8 @@ CONFIG_IDENT_STRING=""
 #
 # ARM debug
 #
+CONFIG_DEFAULT_DEVICE_TREE="s5p6818-nanopi-m3"
+# CONFIG_AHCI is not set
 
 #
 # General setup
@@ -181,8 +183,15 @@ CONFIG_PHYS_64BIT=y
 #
 # Boot images
 #
-# CONFIG_FIT is not set
+CONFIG_FIT=y
+# CONFIG_FIT_VERBOSE is not set
+# CONFIG_FIT_SIGNATURE is not set
+# CONFIG_FIT_BEST_MATCH is not set
+# CONFIG_OF_BOARD_SETUP is not set
+# CONFIG_OF_SYSTEM_SETUP is not set
+# CONFIG_OF_STDOUT_VIA_ALIAS is not set
 CONFIG_SYS_EXTRA_OPTIONS=""
+# CONFIG_SPL_LOAD_FIT is not set
 CONFIG_ARCH_FIXUP_FDT_MEMORY=y
 
 #
@@ -214,7 +223,7 @@ CONFIG_BOOTSTAGE_STASH_SIZE=4096
 # CONFIG_SYS_CONSOLE_ENV_OVERWRITE is not set
 # CONFIG_SYS_CONSOLE_INFO_QUIET is not set
 # CONFIG_SYS_STDIO_DEREGISTER is not set
-CONFIG_DEFAULT_FDT_FILE=""
+CONFIG_DEFAULT_FDT_FILE="s5p6818-nanopi-m3.dtb"
 # CONFIG_SYS_NO_FLASH is not set
 # CONFIG_VERSION_VARIABLE is not set
 # CONFIG_DISPLAY_CPUINFO is not set
@@ -227,8 +236,9 @@ CONFIG_DEFAULT_FDT_FILE=""
 #
 # Command line interface
 #
-# CONFIG_CMDLINE is not set
-CONFIG_SYS_PROMPT="=> "
+CONFIG_CMDLINE=y
+CONFIG_HUSH_PARSER=y
+CONFIG_SYS_PROMPT="nanopi: "
 
 #
 # Autoboot options
@@ -262,6 +272,7 @@ CONFIG_SYS_PROMPT="=> "
 # CONFIG_CMD_BOOTI is not set
 # CONFIG_CMD_BOOTMENU is not set
 # CONFIG_CMD_ELF is not set
+CONFIG_CMD_FDT=y
 # CONFIG_CMD_GO is not set
 # CONFIG_CMD_RUN is not set
 # CONFIG_CMD_IMI is not set
@@ -282,7 +293,7 @@ CONFIG_SYS_PROMPT="=> "
 #
 # Memory commands
 #
-# CONFIG_CMD_MEMORY is not set
+CONFIG_CMD_MEMORY=y
 # CONFIG_CMD_CRC32 is not set
 # CONFIG_LOOPW is not set
 # CONFIG_CMD_MEMTEST is not set
@@ -292,6 +303,8 @@ CONFIG_SYS_PROMPT="=> "
 #
 # Device access commands
 #
+# CONFIG_CMD_DM is not set
+# CONFIG_CMD_DEMO is not set
 # CONFIG_CMD_LOADB is not set
 # CONFIG_CMD_LOADS is not set
 # CONFIG_CMD_FLASH is not set
@@ -304,7 +317,7 @@ CONFIG_SYS_PROMPT="=> "
 # CONFIG_CMD_USB is not set
 # CONFIG_CMD_DFU is not set
 # CONFIG_CMD_USB_MASS_STORAGE is not set
-CONFIG_CMD_FPGA=y
+# CONFIG_CMD_FPGA is not set
 # CONFIG_CMD_GPIO is not set
 
 #
@@ -366,7 +379,9 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # Device Tree Control
 #
-# CONFIG_OF_CONTROL is not set
+CONFIG_OF_CONTROL=y
+# CONFIG_OF_SEPARATE is not set
+CONFIG_OF_EMBED=y
 # CONFIG_NET is not set
 
 #
@@ -376,10 +391,21 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # Generic Driver Options
 #
-# CONFIG_DM is not set
+CONFIG_DM=y
+CONFIG_DM_WARN=y
+CONFIG_DM_DEVICE_REMOVE=y
+CONFIG_DM_STDIO=y
+CONFIG_DM_SEQ_ALIAS=y
+# CONFIG_SPL_DM_SEQ_ALIAS is not set
+# CONFIG_REGMAP is not set
+# CONFIG_SPL_REGMAP is not set
+# CONFIG_DEVRES is not set
+CONFIG_SIMPLE_BUS=y
+CONFIG_OF_TRANSLATE=y
 # CONFIG_ADC is not set
 # CONFIG_ADC_EXYNOS is not set
 # CONFIG_ADC_SANDBOX is not set
+# CONFIG_BLK is not set
 # CONFIG_BLOCK_CACHE is not set
 
 #
@@ -389,6 +415,7 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # Clock
 #
+# CONFIG_CLK is not set
 # CONFIG_CPU is not set
 
 #
@@ -401,6 +428,7 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # Demo for driver model
 #
+# CONFIG_DM_DEMO is not set
 
 #
 # DFU support
@@ -409,6 +437,7 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # DMA Support
 #
+# CONFIG_DMA is not set
 # CONFIG_TI_EDMA3 is not set
 
 #
@@ -420,20 +449,29 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # GPIO Support
 #
+# CONFIG_DM_GPIO is not set
+# CONFIG_INTEL_BROADWELL_GPIO is not set
+# CONFIG_LPC32XX_GPIO is not set
+# CONFIG_VYBRID_GPIO is not set
 
 #
 # I2C support
 #
+# CONFIG_DM_I2C is not set
+# CONFIG_DM_I2C_COMPAT is not set
 # CONFIG_SYS_I2C_DW is not set
+# CONFIG_DM_KEYBOARD is not set
 # CONFIG_CROS_EC_KEYB is not set
 
 #
 # LED Support
 #
+# CONFIG_LED is not set
 
 #
 # Mailbox Controller Support
 #
+# CONFIG_DM_MAILBOX is not set
 
 #
 # Memory Controller drivers
@@ -442,20 +480,24 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # Multifunction device drivers
 #
+# CONFIG_MISC is not set
 # CONFIG_CROS_EC is not set
 # CONFIG_FSL_SEC_MON is not set
 # CONFIG_MXC_OCOTP is not set
 # CONFIG_NUVOTON_NCT6102D is not set
+# CONFIG_PWRSEQ is not set
 # CONFIG_PCA9551_LED is not set
 # CONFIG_WINBOND_W83627 is not set
 
 #
 # MMC Host controller Support
 #
+# CONFIG_DM_MMC is not set
 
 #
 # MTD Support
 #
+# CONFIG_MTD is not set
 
 #
 # NAND Device Support
@@ -479,6 +521,7 @@ CONFIG_SUPPORT_OF_CONTROL=y
 # UBI support
 #
 # CONFIG_MTD_UBI is not set
+# CONFIG_DM_ETH is not set
 # CONFIG_PHYLIB is not set
 # CONFIG_PCI is not set
 # CONFIG_MVEBU_COMPHY_SUPPORT is not set
@@ -486,6 +529,7 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # Pin controllers
 #
+# CONFIG_PINCTRL is not set
 
 #
 # Power
@@ -494,6 +538,11 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # Power Domain Support
 #
+# CONFIG_POWER_DOMAIN is not set
+# CONFIG_DM_PMIC is not set
+# CONFIG_DM_REGULATOR is not set
+# CONFIG_DM_PWM is not set
+# CONFIG_RAM is not set
 
 #
 # Remote Processor drivers
@@ -502,36 +551,29 @@ CONFIG_SUPPORT_OF_CONTROL=y
 #
 # Reset Controller Support
 #
+# CONFIG_DM_RESET is not set
 
 #
 # Real Time Clock
 #
+# CONFIG_DM_RTC is not set
 
 #
 # Serial drivers
 #
-CONFIG_DEBUG_UART=y
-# CONFIG_DEBUG_UART_ALTERA_JTAGUART is not set
-# CONFIG_DEBUG_UART_ALTERA_UART is not set
-# CONFIG_DEBUG_UART_ATMEL is not set
-# CONFIG_DEBUG_UART_NS16550 is not set
-CONFIG_DEBUG_UART_S5P=y
-# CONFIG_DEBUG_UART_UARTLITE is not set
-# CONFIG_DEBUG_UART_ARM_DCC is not set
-# CONFIG_DEBUG_MVEBU_A3700_UART is not set
-# CONFIG_DEBUG_UART_ZYNQ is not set
-# CONFIG_DEBUG_UART_PL010 is not set
-# CONFIG_DEBUG_UART_PL011 is not set
-CONFIG_DEBUG_UART_BASE=0xc00a1000
-CONFIG_DEBUG_UART_CLOCK=100000000
-CONFIG_DEBUG_UART_SHIFT=0
-# CONFIG_DEBUG_UART_BOARD_INIT is not set
-CONFIG_DEBUG_UART_ANNOUNCE=y
+CONFIG_REQUIRE_SERIAL_CONSOLE=y
+CONFIG_SERIAL_PRESENT=y
+# CONFIG_SPL_SERIAL_PRESENT is not set
+CONFIG_DM_SERIAL=y
+# CONFIG_DEBUG_UART is not set
 # CONFIG_DEBUG_UART_SKIP_INIT is not set
+# CONFIG_ALTERA_JTAG_UART is not set
+# CONFIG_ALTERA_UART is not set
 # CONFIG_ATMEL_USART is not set
 # CONFIG_FSL_LPUART is not set
 # CONFIG_MVEBU_A3700_UART is not set
 # CONFIG_SYS_NS16550 is not set
+# CONFIG_MSM_SERIAL is not set
 # CONFIG_PXA_SERIAL is not set
 
 #
@@ -542,6 +584,7 @@ CONFIG_DEBUG_UART_ANNOUNCE=y
 #
 # SPI Support
 #
+# CONFIG_DM_SPI is not set
 # CONFIG_FSL_ESPI is not set
 # CONFIG_FSL_QSPI is not set
 # CONFIG_TI_QSPI is not set
@@ -549,15 +592,18 @@ CONFIG_DEBUG_UART_ANNOUNCE=y
 #
 # SPMI support
 #
+# CONFIG_SPMI is not set
 
 #
 # System reset device drivers
 #
+# CONFIG_SYSRESET is not set
 # CONFIG_DM_THERMAL is not set
 
 #
 # Timer Support
 #
+# CONFIG_TIMER is not set
 
 #
 # TPM support
@@ -567,6 +613,7 @@ CONFIG_DEBUG_UART_ANNOUNCE=y
 #
 # Graphics support
 #
+# CONFIG_DM_VIDEO is not set
 
 #
 # TrueType Fonts
@@ -575,6 +622,9 @@ CONFIG_DEBUG_UART_ANNOUNCE=y
 # CONFIG_VIDEO_LCD_ANX9804 is not set
 # CONFIG_VIDEO_LCD_SSD2828 is not set
 # CONFIG_VIDEO_MVEBU is not set
+# CONFIG_DISPLAY is not set
+# CONFIG_VIDEO_TEGRA20 is not set
+# CONFIG_VIDEO_BRIDGE is not set
 # CONFIG_LCD is not set
 # CONFIG_PHYS_TO_BUS is not set
 
@@ -592,6 +642,7 @@ CONFIG_SYS_HZ=1000
 # CONFIG_LIB_RAND is not set
 # CONFIG_CMD_DHRYSTONE is not set
 # CONFIG_RSA is not set
+# CONFIG_TPM is not set
 
 #
 # Hashing Support
@@ -605,11 +656,13 @@ CONFIG_SYS_HZ=1000
 #
 # CONFIG_LZ4 is not set
 # CONFIG_ERRNO_STR is not set
-# CONFIG_OF_LIBFDT is not set
-# CONFIG_OF_LIBFDT_OVERLAY is not set
+CONFIG_OF_LIBFDT=y
+CONFIG_OF_LIBFDT_OVERLAY=y
 # CONFIG_SPL_OF_LIBFDT is not set
+# CONFIG_FDT_FIXUP_PARTITIONS is not set
 
 #
 # System tables
 #
+# CONFIG_EFI_LOADER is not set
 # CONFIG_UNIT_TEST is not set

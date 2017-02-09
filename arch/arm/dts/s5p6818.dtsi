@@ -1,0 +1,15 @@
+#include "skeleton64.dtsi"
+
+/ {
+	aliases {
+		serial0 = &uart0;
+	};
+	
+	uart0: serial@c00a1000 {
+		reg = <0x0 0xc00a1000 0x0 0x3c>;
+		id = <0>;
+		compatible = "nexell,s5p6818-uart";
+		status = "disabled";
+	};
+};
+

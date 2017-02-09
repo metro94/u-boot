@@ -90,8 +90,6 @@ static void __maybe_unused s5p_serial_baud(struct s5p_uart *uart, uint uclk,
 		writeb(val % 16, &uart->rest.value);
 }
 
-#if 0
-
 #ifndef CONFIG_SPL_BUILD
 int s5p_serial_setbrg(struct udevice *dev, int baudrate)
 {
@@ -99,7 +97,9 @@ int s5p_serial_setbrg(struct udevice *dev, int baudrate)
 	struct s5p_uart *const uart = plat->reg;
 	u32 uclk;
 
-#ifdef CONFIG_CLK_EXYNOS
+#ifdef CONFIG_S5P6818
+	uclk = 100000000;
+#elif CONFIG_CLK_EXYNOS
 	struct clk clk;
 	u32 ret;
 
@@ -206,8 +206,11 @@ static const struct dm_serial_ops s5p_serial_ops = {
 };
 
 static const struct udevice_id s5p_serial_ids[] = {
+#ifdef CONFIG_S5P6818
+	{ .compatible = "nexell,s5p6818-uart" },
+#else
 	{ .compatible = "samsung,exynos4210-uart" },
-	{ }
+#endif
 };
 
 U_BOOT_DRIVER(serial_s5p) = {
@@ -220,8 +223,6 @@ U_BOOT_DRIVER(serial_s5p) = {
 	.ops	= &s5p_serial_ops,
 	.flags = DM_FLAG_PRE_RELOC,
 };
-#endif
-
 #endif
 
 #ifdef CONFIG_DEBUG_UART_S5P
