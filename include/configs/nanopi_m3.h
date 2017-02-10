@@ -1,6 +1,8 @@
 #ifndef __NANOPI_M3_H__
 #define __NANOPI_M3_H__
 
+/* #define DEBUG */
+
 #define CONFIG_S5P6818
 
 #define CONFIG_ENV_IS_NOWHERE
