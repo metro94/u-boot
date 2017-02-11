@@ -7,41 +7,97 @@
 		serial0 = &uart0;
 	};
 	
-//	cpus {
-//		#address-cells = <2>;
-//		#size-cells = <0>;
-//		
-//		cpu-map {
-//			cluster0 {
-//				core0 {
-//					cpu = <&cpu0>;
-//				};
-//				core1 {
-//					cpu = <&cpu1>;
-//				};
-//				core2 {
-//					cpu = <&cpu2>;
-//				};
-//				core3 {
-//					cpu = <&cpu3>;
-//				};
-//			};
-//			cluster1 {
-//				core0 {
-//					cpu = <&cpu4>;
-//				};
-//				core1 {
-//					cpu = <&cpu5>;
-//				};
-//				core2 {
-//					cpu = <&cpu6>;
-//				};
-//				core3 {
-//					cpu = <&cpu7>;
-//				};
-//			};
-//		};
-//	};
+	cpus {
+		#address-cells = <2>;
+		#size-cells = <0>;
+		
+		cpu-map {
+			cluster0 {
+				core0 {
+					cpu = <&cpu0>;
+				};
+				core1 {
+					cpu = <&cpu1>;
+				};
+				core2 {
+					cpu = <&cpu2>;
+				};
+				core3 {
+					cpu = <&cpu3>;
+				};
+			};
+			cluster1 {
+				core0 {
+					cpu = <&cpu4>;
+				};
+				core1 {
+					cpu = <&cpu5>;
+				};
+				core2 {
+					cpu = <&cpu6>;
+				};
+				core3 {
+					cpu = <&cpu7>;
+				};
+			};
+		};
+		
+		cpu0: cpu@000 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x0>;
+			// enable-method = "psci";
+		};
+		
+		cpu1: cpu@001 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x1>;
+			// enable-method = "psci";
+		};
+		
+		cpu2: cpu@002 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x2>;
+			// enable-method = "psci";
+		};
+		
+		cpu3: cpu@003 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x3>;
+			// enable-method = "psci";
+		};
+		
+		cpu4: cpu@400 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x400>;
+			// enable-method = "psci";
+		};
+		
+		cpu5: cpu@401 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x401>;
+			// enable-method = "psci";
+		};
+		
+		cpu6: cpu@402 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x402>;
+			// enable-method = "psci";
+		};
+		
+		cpu7: cpu@403 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			reg = <0x0 0x403>;
+			// enable-method = "psci";
+		};
+	};
 	
 	soc {
 		#address-cells = <2>;

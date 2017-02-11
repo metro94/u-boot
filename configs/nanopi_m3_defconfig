@@ -258,8 +258,8 @@ CONFIG_SYS_PROMPT="nanopi: "
 #
 # Info commands
 #
-# CONFIG_CMD_BDI is not set
-# CONFIG_CMD_CONSOLE is not set
+CONFIG_CMD_BDI=y
+CONFIG_CMD_CONSOLE=y
 # CONFIG_CMD_CPU is not set
 # CONFIG_CMD_LICENSE is not set
 
