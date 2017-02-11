@@ -16,6 +16,7 @@
 #include <asm/io.h>
 #ifdef CONFIG_S5P6818
 #include <serial_s5p.h>
+#include <reset-uclass.h>
 #else
 #include <asm/arch/clk.h>
 #include <asm/arch/uart.h>
@@ -120,7 +121,17 @@ static int s5p_serial_probe(struct udevice *dev)
 {
 	struct s5p_serial_platdata *plat = dev->platdata;
 	struct s5p_uart *const uart = plat->reg;
+#ifdef CONFIG_S5P6818
+	struct reset_ctl reset_ctl;
 
+	if (reset_get_by_index(dev, 0, &reset_ctl))
+		return -EINVAL;
+
+	reset_assert(&reset_ctl);
+	reset_deassert(&reset_ctl);
+
+	reset_free(&reset_ctl);
+#endif
 	s5p_serial_init(uart);
 
 	return 0;

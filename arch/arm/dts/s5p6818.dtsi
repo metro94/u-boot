@@ -7,47 +7,66 @@
 		serial0 = &uart0;
 	};
 	
-	cpus {
-		#address-cells = <2>;
-		#size-cells = <0>;
-		
-		cpu-map {
-			cluster0 {
-				core0 {
-					cpu = <&cpu0>;
-				};
-				core1 {
-					cpu = <&cpu1>;
-				};
-				core2 {
-					cpu = <&cpu2>;
-				};
-				core3 {
-					cpu = <&cpu3>;
-				};
-			};
-			cluster1 {
-				core0 {
-					cpu = <&cpu4>;
-				};
-				core1 {
-					cpu = <&cpu5>;
-				};
-				core2 {
-					cpu = <&cpu6>;
-				};
-				core3 {
-					cpu = <&cpu7>;
-				};
-			};
-		};
-	};
+//	cpus {
+//		#address-cells = <2>;
+//		#size-cells = <0>;
+//		
+//		cpu-map {
+//			cluster0 {
+//				core0 {
+//					cpu = <&cpu0>;
+//				};
+//				core1 {
+//					cpu = <&cpu1>;
+//				};
+//				core2 {
+//					cpu = <&cpu2>;
+//				};
+//				core3 {
+//					cpu = <&cpu3>;
+//				};
+//			};
+//			cluster1 {
+//				core0 {
+//					cpu = <&cpu4>;
+//				};
+//				core1 {
+//					cpu = <&cpu5>;
+//				};
+//				core2 {
+//					cpu = <&cpu6>;
+//				};
+//				core3 {
+//					cpu = <&cpu7>;
+//				};
+//			};
+//		};
+//	};
 	
-	uart0: serial@c00a1000 {
-		reg = <0x0 0xc00a1000 0x0 0x3c>;
-		id = <0>;
-		compatible = "nexell,s5p6818-uart";
-		status = "disabled";
+	soc {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		compatible = "simple-bus";
+		status = "okay";
+		u-boot,dm-pre-reloc;
+		ranges;
+		
+		ip_reset: reset@c0012000 {
+			#reset-cells = <1>;
+			compatible = "nexell,s5p6818-reset";
+			reg = <0x0 0xc0012000 0x0 0xc>;
+			tot_reset_ids = <70>;
+			status = "okay";
+			u-boot,dm-pre-reloc;
+		};
+		
+		uart0: serial@c00a1000 {
+			compatible = "nexell,s5p6818-uart";
+			reg = <0x0 0xc00a1000 0x0 0x3c>;
+			id = <0>;
+			resets = <&ip_reset 50>;
+			status = "disabled";
+		};
 	};
 };
 

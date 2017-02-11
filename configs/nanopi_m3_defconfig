@@ -551,7 +551,8 @@ CONFIG_OF_TRANSLATE=y
 #
 # Reset Controller Support
 #
-# CONFIG_DM_RESET is not set
+CONFIG_DM_RESET=y
+CONFIG_S5P6818_RESET=y
 
 #
 # Real Time Clock

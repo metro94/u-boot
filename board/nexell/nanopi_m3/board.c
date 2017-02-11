@@ -1,10 +1,7 @@
 #include <common.h>
 #include <asm/io.h>
 #include <asm/armv8/mmu.h>
-
-#include <debug_uart.h>
-
-DECLARE_GLOBAL_DATA_PTR;
+#include <fdtdec.h>
 
 static struct mm_region nanopi_m3_mem_map[] = {
 	{
@@ -44,8 +41,7 @@ int board_init(void)
 
 int dram_init(void)
 {
-	gd->ram_size = CONFIG_SYS_SDRAM_SIZE;
-	return 0;
+	return fdtdec_setup_memory_size();
 }
 
 void reset_cpu(ulong addr)
@@ -53,4 +49,9 @@ void reset_cpu(ulong addr)
 	setbits_le32(0xC0010224, 1 << 3);
 	setbits_le32(0xC0010228, 1 << 12);
 	while (1);
+}
+
+void dram_init_banksize(void)
+{
+	fdtdec_setup_memory_banksize();
 }
